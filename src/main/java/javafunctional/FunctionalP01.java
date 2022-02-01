@@ -15,23 +15,34 @@ public class FunctionalP01 {
 
 		// printAllCoursesInListFunctional(courses);
 
-		printCoursesContainingSpring(courses);
+		// printCoursesContainingSpring(courses);
 
+		printAllSquareNumbersIFEvenFunctional(List.of(12, 8, 14, 44, 3, 76, 21));
+
+	}
+
+	private static void printAllSquareNumbersIFEvenFunctional(List<Integer> numbers) {
+
+		numbers.stream()
+				.filter(number -> number % 2 == 0)
+				.map(number -> number * number)
+				.forEach(System.out::println);
 	}
 
 	private static void printCoursesContainingSpring(List<String> courses) {
 
 		courses.stream().forEach((course) -> {
 			if (course.contains("Spring")) {
-		//		System.out.println(course);
+				// System.out.println(course);
 			}
 		});
 		;
-		
-		
-	//	courses.stream().filter( course -> course.contains("Spring")).forEach(System.out::println);
-	//	courses.stream().filter( course -> course.contains("Spring")).collect(Collectors.toList()).stream().forEach(System.out::println);
-		courses.stream().filter( course -> course.length() > 3).forEach(System.out::println);
+
+		// courses.stream().filter( course ->
+		// course.contains("Spring")).forEach(System.out::println);
+		// courses.stream().filter( course ->
+		// course.contains("Spring")).collect(Collectors.toList()).stream().forEach(System.out::println);
+		courses.stream().filter(course -> course.length() > 3).forEach(System.out::println);
 
 	}
 
