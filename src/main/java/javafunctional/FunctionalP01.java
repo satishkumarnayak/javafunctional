@@ -10,8 +10,7 @@ public class FunctionalP01 {
 
 		// printAllNumbersInListFunctional(List.of(12, 8, 14, 44, 3, 76, 21));
 
-		List<String> courses = List.of("Spring", "Spring Boot", "API", "Microservices", "AWS", "PCF", "Azure", "Docker",
-				"Kubernetes");
+		List<String> courses = List.of("Spring", "Spring Boot", "API", "Microservices", "AWS", "PCF", "Azure", "Docker","Kubernetes");
 
 		// printAllCoursesInListFunctional(courses);
 
