@@ -15,10 +15,30 @@ public class FunctionalP06 {
 				new Course("FullStack", "FullStack", 91, 14000), new Course("AWS", "Cloud", 92, 21000),
 				new Course("Azure", "Cloud", 99, 21000), new Course("Docker", "Cloud", 92, 20000),
 				new Course("Kubernetes", "Cloud", 91, 20000));
+		
+	
+	//group by review score
+		Map<Integer, List<Course>> collect2 = courses.stream().collect(Collectors.groupingBy(course -> course.getReviewScore()));
+		Map<Integer, List<Course>> collect3 = courses.stream().collect(Collectors.groupingBy(Course::getReviewScore));
+		System.out.println(collect2);
+		System.out.println(collect3);
+	//if % > 95 group by review score
+		Map<Integer, List<Course>> collect4 = courses.stream().filter(course -> course.getReviewScore() > 95).collect(Collectors.groupingBy(Course::getReviewScore));
+		System.out.println(collect4);
+	// course with highest score
+		courses.stream().sorted(Comparator.comparing(Course::getReviewScore).reversed()).findFirst().ifPresent(System.out::println);
+	//Sort by no of students and then name
+		courses.stream().sorted(Comparator.comparing(Course::getNoOfStudents).thenComparing(Course::getName)).forEach(System.out::print);
+	//Sort by no of students in reverse
+		courses.stream().sorted(Comparator.comparing(Course::getNoOfStudents).reversed()).forEach(System.out::println);
+	//Sort by name
+		System.out.println("=====");
+		courses.stream().sorted(Comparator.comparing(Course::getName)).forEach(System.out::println);
+	
 
 	Map<Integer, List<Course>> collect = courses.stream().collect(Collectors.groupingBy(Course::getReviewScore));	
 //	Map<Integer, List<Course>> collect = courses.stream().filter(course -> course.getReviewScore() >= 95).collect(Collectors.groupingBy((course) -> course.getReviewScore()));
-	System.out.println(collect);
+	//System.out.println(collect);
 	//	courses.stream().max(Comparator.comparing(Course::getReviewScore)).ifPresent(course -> System.out.println(course));
 	//	courses.stream().sorted(Comparator.comparing(Course::getNoOfStudents).thenComparing(Comparator.comparing(Course::getName))).forEach(System.out::println);
 	//	courses.stream().sorted(Comparator.comparing(Course::getNoOfStudents)).forEach(System.out::println);

@@ -24,14 +24,20 @@ public class FunctionalP05 {
 
 		List<Integer> cubeList = functionpass(numbers, number -> number * number * number);
 		List<Integer> squaredList = functionpass(numbers, number -> number * number);
+		List<Integer> quadraList = functionpass(numbers, number -> number * number * number * number);
 
 		System.out.println(squaredList);
 		System.out.println(cubeList);
+		System.out.println(quadraList);
 	}
 
 	private static List<Integer> functionpass(List<Integer> numbers, Function<Integer, Integer> function) {
 		return numbers.stream().map(function).collect(Collectors.toList());
 		
 	}
+	
+
+	
+	
 
 }

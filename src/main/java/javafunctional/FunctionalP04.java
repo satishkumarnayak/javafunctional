@@ -12,6 +12,10 @@ public class FunctionalP04 {
 		passbehaviour(numbers, number -> number % 2 == 0);
 
 		passbehaviour(numbers, number -> number % 2 != 0);
+		
+		passbehaviour(numbers, number -> number % 4 == 0);
+		
+		
 	}
 
 	private static void passbehaviour(List<Integer> numbers, Predicate<Integer> predicate) {
